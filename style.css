@@ -22,7 +22,7 @@ body{
     padding: 30px;
 }
 .app h1{
-    font-sizw: 25px;
+    font-size: 25px;
     border-bottom: 2px solid grey;
     font-weight: 600;
  padding-bottom: 30px;
@@ -49,7 +49,35 @@ body{
 
 
 }
-.btn:hover{
+.btn:hover:not([disabled]){
     background: #222;
     color: aquamarine;
+}
+.btn:disabled{
+    cursor: no-drop;
+}
+#next-btn{
+    background: #001e4d;
+    color: #fff;
+    border: 1px solid goldenrod;
+    font-weight: 500;
+    width: 30%;
+    margin: 10px 0;
+    /* margin-left: 280px; */
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3sec;
+    display: none;
+}
+#next-btn:hover{
+    background: #222;
+    color: aquamarine;
+}
+.correct{
+    background: #9aeabc;
+}
+.incorrect{
+    background: #ff9393;
 }
