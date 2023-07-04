@@ -1,3 +1,5 @@
+// const { handle } = require("express/lib/application");
+
 const questions=[
     {questions:"which is the largest bird in the world?",
     answers:[{
@@ -74,6 +76,7 @@ let score=0;
             const isCorrect=selectBtn.dataset.correct==="true";
             if(isCorrect){
                 selectBtn.classList.add("correct");
+                score++;
 
             }
             else{
@@ -87,6 +90,34 @@ let score=0;
 
             });
             nextButton.style.display="block";
+             
             
     }
+    function showScore(){
+        resetState();
+        questionElement.innerHTML=`you scored ${score} out of  ${questions.length}!`;
+        nextButton.innerHTML="Play Again";
+        nextButton.style.display="block";
+    }
+
+    function handleNextButton(){
+         currentQuestionsIndex++;
+         if (currentQuestionsIndex<questions.length) {
+            showQuestion();
+            
+         }
+         else{
+            showScore();
+         }
+    }
+    nextButton.addEventListener("click",()=>{
+        if (currentQuestionsIndex<questions.length) {
+            handleNextButton();
+            
+        }
+        else{
+            start_Quiz();
+
+        }
+    })
     start_Quiz();
